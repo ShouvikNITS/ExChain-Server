@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -17,10 +16,10 @@ model User {
   password     String
   points       Int
   location     String?
-  accesstoken  String
-  refreshtoken String
-  createdAt    DateTime
-  updatedAt    DateTime
+  accesstoken  String?
+  refreshtoken String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   products Product[]
   cart     Cart?

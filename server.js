@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 // import {router} from "next/client.js";
 import cors from "cors"
+import userRouter from "./routes/user.routes.js";
+
 
 dotenv.config();
 
@@ -21,7 +23,7 @@ app.get('/', (req, res) => {
     }
 })
 
-
+app.use('/api/user', userRouter)
 
 app.listen(port, () => {
     console.log(`Server started on port http://localhost:${port}`);
